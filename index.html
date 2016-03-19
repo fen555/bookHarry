@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Shopping List </title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+	<script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js'></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="js/index.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+
+    <html ng-app="root">
+		<div class="container" ng-controller="index">
+
+		 	<div class="box margin-left" id="shopping-list">
+			    <h1>My Shopping List</h1>
+			    <div>
+			    	<img src="img/1.jpeg" ng-click="addItem(1)" ng-model="b1">
+			    	<input type='number' class="searchButton margin-right" placeholder='Quantity' ng-model="itemQuantity1" default=0 min=0>
+			    	<button id="addItem" ng-click="addItem(1)">Add Item</button>
+			    </div>
+
+		    
+		   
+
+		    
+		    	<!-- <button id="addItem" ng-click="addItem()">Add Item</button> -->
+			</div>
+		<div class="box margin-right" id="shopping-list">
+		    
+		    <div class="list">
+		      <table border="0" cellspacing="0">
+		        <tr class="table-header">
+		          <td class="left">Item Name</td>
+		          <td class="left">Shop</td>
+		          <td>Quantity</td>
+		          <td class="center">Price</td>
+		          <td class="center">Delete</td>
+		        </tr>
+		        <tr ng-repeat="item in list">
+		          <td>{{item.name}}</td>
+		          <td class="left">{{item.shop}}</td>
+		          <td class="center">{{item.quantity}}</td>
+		          <td>{{item.price | currency}}</td>
+		          <td><button class="btn btn-danger glyphicon glyphicon-trash" ng-click="remove(item)"></button></td>
+		        </tr>
+		      </table>
+		      <div ng-hide="list.length" class="center">Your shopping list is empty.</div>
+		      <div class="cost cf">
+		        <span class="left">Total Cost:</span>
+		        <span class="right" ng-class="{total: length!==0}">{{getTotal() | currency}}</span>
+		      </div>
+		      <button class="clear" ng-click="clearAll(list)">Clear Shopping List</button>
+		    </div>
+		  </div>
+		  
+		  
+</html>
+    
+
+    
+    
+    
+  </body>
+</html>

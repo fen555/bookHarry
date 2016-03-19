@@ -1,0 +1,267 @@
+@import url("http://www.markmurray.co/codepen/customstyle.css");
+@import url("http://fonts.googleapis.com/css?family=Lato:300,400,700");
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body {
+  background: #AFC7B9;
+  font-family: 'Lato', sans-serif;
+  height: 100%;
+  padding: 1em;
+}
+
+.left {
+  text-align: left !important;
+}
+
+.center {
+  text-align: center !important;
+}
+
+.right {
+  text-align: right !important;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.box {
+  width: 49%;
+  background: #f3f3f3;
+  margin: 0 auto 2em auto;
+  overflow: auto;
+  padding: 1em;
+  border-radius: 3px;
+  display: inline-block;
+  vertical-align: top;
+}
+.box:first-child {
+  margin-right: 1%;
+}
+
+h1 {
+  color: #3a3a3a;
+  text-align: center;
+  margin: 1em 0;
+}
+
+table {
+  border: none;
+  outline: none;
+  width: 100%;
+  margin: 0.5em 0 1em;
+}
+table tr.table-header td {
+  font-size: 0.7em;
+  font-weight: bolder;
+}
+table td {
+  padding: 0.75em 0.5em;
+}
+table td:first-child {
+  text-align: left;
+}
+table td:nth-child(3) {
+  text-align: center;
+}
+table td:last-child, table td:nth-child(4) {
+  text-align: right;
+}
+table tr:nth-child(2n+2) {
+  background: #ebebeb;
+}
+
+.searchButton {
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  outline: none;
+  padding: 1em;
+  border-radius: 3px;
+  font-weight: 300;
+  font-size: 0.8em;
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+  position: relative;
+}
+
+.margin-right {
+  margin-right: 1%;
+}
+
+.half {
+  width: 49.5%;
+  display: inline-block;
+}
+.half input {
+  width: 100%;
+}
+
+.half:first-child {
+  margin-right: 2%;
+}
+
+.selected {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.dollar {
+  position: relative;
+  display: inline-block;
+}
+
+.dollar input {
+  padding-left: 2em;
+}
+
+.dollar span {
+  position: absolute;
+  display: block;
+  padding: 3px 3px 3px 7px;
+  pointer-events: none;
+  left: 5px;
+  top: 13px;
+  color: #aaa;
+  z-index: 1;
+}
+
+.searchButton.full {
+  width: 100%;
+}
+
+.list {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+.list ul li {
+  margin: 1em 0;
+}
+
+.inventory h1 {
+  color: #3a3a3a;
+  padding-top: 5px;
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+}
+
+input[type='checkbox'] {
+  background: transparent;
+  border: 2px solid #3a3a3a;
+  padding: 0.2em;
+  font-size: 1em;
+}
+
+button.clear {
+  background: #3f5872;
+  border-bottom: 4px solid #2b3c4e;
+}
+
+button.clear:hover {
+  background: #384e65;
+  border-bottom: 2px solid #2b3c4e;
+}
+
+button {
+  margin: 0.25em 0;
+  display: block;
+  outline: none;
+  background: #fb887c;
+  border: none;
+  padding: 1.1em;
+  border-radius: 6px;
+  width: 100%;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-bottom: 4px solid #fa7263;
+}
+
+.cost {
+  margin-bottom: 1em;
+}
+.cost span {
+  padding: 0.5em;
+}
+.cost span:first-child {
+  float: left;
+}
+.cost span:nth-child(2) {
+  float: right;
+  vertical-align: baseline;
+}
+
+.total {
+  background: #fb887c;
+  color: white;
+  font-weight: bolder;
+  border-radius: 5px;
+}
+
+#successMessage, #errorMessage {
+  display: none;
+  text-align: center;
+  margin: 0.5em 0;
+  -webkit-transition: display 0.3s ease;
+  transition: display 0.3s ease;
+}
+
+i {
+  vertical-align: baseline;
+  margin-right: 0.5em;
+  border-radius: 50%;
+  width: 0.5em;
+  height: 0.5em;
+  padding: 0.5em;
+  font-size: 0.8em;
+  color: white;
+}
+
+i.icon-checkmark {
+  background: green;
+}
+
+i.icon-cross {
+  background: red;
+}
+
+i.delete {
+  color: #fcaca4;
+  background: transparent;
+  font-size: 1.1em;
+  vertical-align: sub;
+  cursor: pointer;
+}
+i.delete:hover {
+  color: #fa6454;
+}
+
+#successMessage {
+  color: green;
+}
+
+#errorMessage {
+  color: red;
+}
+
+@media (max-width: 800px) {
+  .box {
+    width: 100%;
+    display: block;
+  }
+}
+/* Clearfix */
+.cf:before,
+.cf:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+.cf:after {
+  clear: both;
+}
