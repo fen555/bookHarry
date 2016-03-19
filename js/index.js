@@ -35,11 +35,6 @@ shoppingList.controller('index', ['$scope', function ($scope) {
       $scope.itemQuantity1 = 0
     } else {
       $scope.list.push({name: $scope.itemName, shop: $scope.itemShop, quantity: $scope.itemQuantity, price: 100 * $scope.itemQuantity, checked: false})
-
-      $scope.itemName = ''
-      $scope.itemShop = ''
-      $scope.itemQuantity = ''
-      $scope.itemPrice = ''
     }
   }
 }])
