@@ -73,6 +73,11 @@
 		        <span class="left">Total Cost:</span>
 		        <span class="right" ng-class="{total: length!==0}">{{getTotal() | currency}}</span>
 		      </div>
+          <div class="cost cf">
+            <span class="left">Total Discount:</span>
+            <span class="right" ng-class="{total: length!==0}">{{getDiscount(getTotal()) | currency}}</span>
+          </div>
+
 		      <button class="clear" ng-click="clearAll(list)">Clear Shopping List</button>
 		    </div>
 		  </div>
