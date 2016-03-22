@@ -11,12 +11,15 @@ eppingList.controller('index', ['$scope', function ($scope) {
     {name: 'Harry Potter and the Deathly Hallows', ep: 7, price: 100, img: 'img/7.jpeg'}
   ]
   $scope.list = []
+  $scope.list2 = []
   $scope.getTotal = function () {
     var total = 0
     for (var i = 0; i < $scope.list.length; i++) {
       total += ($scope.list[i].amount * 100)
     }
     return total
+  }
+  $scope.getDiscount = function (list) {
   }
 
   $scope.remove = function (item) {
@@ -39,9 +42,9 @@ eppingList.controller('index', ['$scope', function ($scope) {
         amount: 1
       }
       $scope.list.push(data)
+      console.log($scope.list)
+      $scope.list2 = $scope.list
     }
-    console.log($scope.list)
-    // console.log(ep, name)
   }
   var check = function (list, ep) {
     for (var i = 0; i < list.length; i++) {
