@@ -22,34 +22,14 @@
 		 	<div class="box" id="shopping-list">
 			    <h1>My Shopping List</h1>
 			    <div>
-			    	<img src="img/1.jpeg">
-			    	<input type='number' class="searchButton margin-right" ng-model="itemQuantity1" min=0>
+			    	<img src="img/1.jpeg" ng-click="addItem(1,'Harry Potter and the Philosophers Stone')">
+            <img src="img/2.jpeg" ng-click="addItem(2,'Harry Potter and the Chamber of Secrets')">
+            <img src="img/3.jpeg" ng-click="addItem(3,'Harry Potter and the Prisoner of Azkaban')">
+            <img src="img/4.jpeg" ng-click="addItem(4,'Harry Potter and the Goblet of Fire')">
+            <img src="img/5.jpeg" ng-click="addItem(5,'Harry Potter and the Order of the Phoenix')">
+            <img src="img/6.jpeg" ng-click="addItem(6,'Harry Potter and the Half-Blood Prince')">
+            <img src="img/7.jpeg" ng-click="addItem(7,'Harry Potter and the Deathly Hallows')">
 			    </div>
-          <div>
-			    	<img src="img/2.jpeg">
-			    	<input type='number' class="searchButton margin-right" ng-model="itemQuantity2" min=0>
-			    </div>
-          <div>
-			    	<img src="img/3.jpeg">
-			    	<input type='number' class="searchButton margin-right" ng-model="itemQuantity3" min=0>
-			    </div>
-          <div>
-			    	<img src="img/4.jpeg">
-			    	<input type='number' class="searchButton margin-right" ng-model="itemQuantity4" min=0>
-			    </div>
-          <div>
-			    	<img src="img/5.jpeg">
-			    	<input type='number' class="searchButton margin-right" ng-model="itemQuantity5" min=0>
-			    </div>
-          <div>
-			    	<img src="img/6.jpeg">
-			    	<input type='number' class="searchButton margin-right" ng-model="itemQuantity6" min=0>
-			    </div>
-          <div>
-			    	<img src="img/7.jpeg">
-			    	<input type='number' class="searchButton margin-right" ng-model="itemQuantity7" min=0>
-			    </div>
-          <button id="addItem" ng-click="addItem()">Add Item</button>
 			</div>
 		<div class="box" id="shopping-list">
 
@@ -63,8 +43,8 @@
 		        </tr>
 		        <tr ng-repeat="item in list">
 		          <td>{{item.name}}</td>
-		          <td class="center">{{item.quantity}}</td>
-		          <td>{{item.price | currency}}</td>
+		          <td class="center">{{item.amount}}</td>
+		          <td>{{item.amount * 100}}</td>
 		          <td><button class="btn btn-danger glyphicon glyphicon-trash" ng-click="remove(item)"></button></td>
 		        </tr>
 		      </table>

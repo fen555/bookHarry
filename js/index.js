@@ -1,64 +1,22 @@
 /* global angular */
-var shoppingList = angular.module('root', [])
-shoppingList.controller('index', ['$scope', function ($scope) {
-  $scope.itemQuantity1 = 0
-  $scope.itemQuantity2 = 0
-  $scope.itemQuantity3 = 0
-  $scope.itemQuantity4 = 0
-  $scope.itemQuantity5 = 0
-  $scope.itemQuantity6 = 0
-  $scope.itemQuantity7 = 0
-  var $n = 0
-
-  $scope.list = [
-    {name: "Harry Potter and the Philosopher's Stone", shop: '1', quantity: 1, price: 100}
-
+var eppingList = angular.module('root', [])
+eppingList.controller('index', ['$scope', function ($scope) {
+  $scope.book = [
+    {name: "Harry Potter and the Philosopher's Stone", ep: 1, price: 100, img: 'img/1.jpeg'},
+    {name: 'Harry Potter and the Chamber of Secrets', ep: 2, price: 100, img: 'img/2.jpeg'},
+    {name: 'Harry Potter and the Prisoner of Azkaban', ep: 3, price: 100, img: 'img/3.jpeg'},
+    {name: 'Harry Potter and the Goblet of Fire', ep: 4, price: 100, img: 'img/4.jpeg'},
+    {name: 'Harry Potter and the Order of the Phoenix', ep: 5, price: 100, img: 'img/5.jpeg'},
+    {name: 'Harry Potter and the Half-Blood Prince', ep: 6, price: 100, img: 'img/6.jpeg'},
+    {name: 'Harry Potter and the Deathly Hallows', ep: 7, price: 100, img: 'img/7.jpeg'}
   ]
-  $scope.listBook = []
+  $scope.list = []
   $scope.getTotal = function () {
     var total = 0
     for (var i = 0; i < $scope.list.length; i++) {
-      total += $scope.list[i].price
+      total += ($scope.list[i].amount * 100)
     }
     return total
-  }
-
-  $scope.getDiscount = function (total) {
-    var discount = 0
-    var num = 0
-    var num2 = 0
-    var num3 = 0
-    var num4 = 0
-    var num5 = 0
-    var num6 = 0
-    var num7 = 0
-    for (var i = 0; i < $scope.listBook.length; i++) {
-      if ($scope.listBook[i] === 1) {
-        num += 1
-      }
-      if ($scope.listBook[i] === 2) {
-        num2 += 1
-      }
-      if ($scope.listBook[i] === 3) {
-        num3 += 1
-      }
-      if ($scope.listBook[i] === 4) {
-        num4 += 1
-      }
-      if ($scope.listBook[i] === 5) {
-        num5 += 1
-      }
-      if ($scope.listBook[i] === 6) {
-        num6 += 1
-      }
-      if ($scope.listBook[i] === 7) {
-        num7 += 1
-      }
-    }
-    if (num === 1 && num2 === 1) {
-      discount = total * 0.1
-    }
-    return discount
   }
 
   $scope.remove = function (item) {
@@ -70,57 +28,33 @@ shoppingList.controller('index', ['$scope', function ($scope) {
     var length = list.length
     list.splice(0, length)
   }
-
-  $scope.addItem = function () {
-    if ($scope.itemQuantity1 !== 0) {
-      $scope.list.push({name: "Harry Potter and the Philosopher's Stone", shop: '1', quantity: $scope.itemQuantity1, price: 100 * $scope.itemQuantity1})
-      for ($n = 0; $n < $scope.itemQuantity1; $n++) {
-        $scope.listBook.push(1)
+  $scope.addItem = function (ep, name) {
+    if (check($scope.list, ep)) {
+      var index = findArrBook($scope.list, ep)
+      $scope.list[index].amount += 1
+    } else {
+      var data = {
+        ep: ep,
+        name: name,
+        amount: 1
       }
-      $scope.itemQuantity1 = 0
+      $scope.list.push(data)
     }
-    if ($scope.itemQuantity2 !== 0) {
-      $scope.list.push({name: 'Harry Potter and the Chamber of Secrets', shop: '2', quantity: $scope.itemQuantity2, price: 100 * $scope.itemQuantity2})
-      for ($n = 0; $n < $scope.itemQuantity2; $n++) {
-        $scope.listBook.push(2)
+    console.log($scope.list)
+    // console.log(ep, name)
+  }
+  var check = function (list, ep) {
+    for (var i = 0; i < list.length; i++) {
+      if (list[i].ep === ep) {
+        return true
       }
-      $scope.itemQuantity2 = 0
     }
-    if ($scope.itemQuantity3 !== 0) {
-      $scope.list.push({name: 'Harry Potter and the Prisoner of Azkaban', shop: '3', quantity: $scope.itemQuantity3, price: 100 * $scope.itemQuantity3})
-      for ($n = 0; $n < $scope.itemQuantity3; $n++) {
-        $scope.listBook.push(3)
+  }
+  var findArrBook = function (list, ep) {
+    for (var i = 0; i < list.length; i++) {
+      if (list[i].ep === ep) {
+        return i
       }
-      $scope.itemQuantity3 = 0
     }
-    if ($scope.itemQuantity4 !== 0) {
-      $scope.list.push({name: 'Harry Potter and the Goblet of Fire', shop: '4', quantity: $scope.itemQuantity4, price: 100 * $scope.itemQuantity4})
-      for ($n = 0; $n < $scope.itemQuantity4; $n++) {
-        $scope.listBook.push(4)
-      }
-      $scope.itemQuantity4 = 0
-    }
-    if ($scope.itemQuantity5 !== 0) {
-      $scope.list.push({name: 'Harry Potter and the Order of the Phoenix', shop: '5', quantity: $scope.itemQuantity5, price: 100 * $scope.itemQuantity5})
-      for ($n = 0; $n < $scope.itemQuantity5; $n++) {
-        $scope.listBook.push(5)
-      }
-      $scope.itemQuantity5 = 0
-    }
-    if ($scope.itemQuantity6 !== 0) {
-      $scope.list.push({name: 'Harry Potter and the Half-Blood Prince', shop: '6', quantity: $scope.itemQuantity6, price: 100 * $scope.itemQuantity6})
-      for ($n = 0; $n < $scope.itemQuantity6; $n++) {
-        $scope.listBook.push(6)
-      }
-      $scope.itemQuantity6 = 0
-    }
-    if ($scope.itemQuantity7 !== 0) {
-      $scope.list.push({name: 'Harry Potter and the Deathly Hallows', shop: '7', quantity: $scope.itemQuantity7, price: 100 * $scope.itemQuantity7})
-      for ($n = 0; $n < $scope.itemQuantity7; $n++) {
-        $scope.listBook.push(7)
-      }
-      $scope.itemQuantity7 = 0
-    }
-    console.log($scope.listBook)
   }
 }])
