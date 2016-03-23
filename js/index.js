@@ -2,6 +2,7 @@
 var eppingList = angular.module('root', [])
 eppingList.controller('index', ['$scope', function ($scope) {
   $scope.list = []
+  $scope.amount = []
   // $scope.list2 = []
   $scope.getTotal = function () {
     var total = 0
@@ -45,13 +46,21 @@ eppingList.controller('index', ['$scope', function ($scope) {
       }
       return 0
     })
-    // console.log($scope.list[0].amount)
-    // var count = 0
-    // var dis = 0
-    // for (var r = 0; r <= $scope.list[0].amount - 1; r--) {
-    //   if ($scope.list[r]) {
-    //   }
-    // }
+    var amountproduct = []
+    for (var i = 0; i < $scope.list.length; i++) {
+      if (typeof $scope.list[i].amount !== 'undefined') {
+        amountproduct.push($scope.list[i].amount)
+      }
+      $scope.amount = amountproduct
+      console.log($scope.amount)
+    }
+  // console.log($scope.list[0].amount)
+  // var count = 0
+  // var dis = 0
+  // for (var r = 0; r <= $scope.list[0].amount - 1; r--) {
+  //   if ($scope.list[r]) {
+  //   }
+  // }
   // $scope.getDiscount()
   }
   var check = function (list, ep) {
@@ -68,9 +77,10 @@ eppingList.controller('index', ['$scope', function ($scope) {
       }
     }
   }
-  $scope.getDiscount = function () {
-    // for (var r = 0; r < $scope.list[0].amount; r++) {
-    //
-    // }
+  $scope.getDiscount = function (listD) {
+    console.log(listD)
+  // for (var r = 0; r < $scope.list[0].amount; r++) {
+  //
+  // }
   }
 }])
