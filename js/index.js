@@ -3,6 +3,7 @@ var eppingList = angular.module('root', [])
 eppingList.controller('index', ['$scope', function ($scope) {
   $scope.list = []
   $scope.amount = []
+  $scope.discountBook = 0
   // $scope.list2 = []
   $scope.getTotal = function () {
     var total = 0
@@ -54,14 +55,6 @@ eppingList.controller('index', ['$scope', function ($scope) {
       $scope.amount = amountproduct
       console.log($scope.amount)
     }
-  // console.log($scope.list[0].amount)
-  // var count = 0
-  // var dis = 0
-  // for (var r = 0; r <= $scope.list[0].amount - 1; r--) {
-  //   if ($scope.list[r]) {
-  //   }
-  // }
-  // $scope.getDiscount()
   }
   var check = function (list, ep) {
     for (var i = 0; i < list.length; i++) {
@@ -77,10 +70,9 @@ eppingList.controller('index', ['$scope', function ($scope) {
       }
     }
   }
-  $scope.getDiscount = function (listD) {
-    console.log(listD)
-  // for (var r = 0; r < $scope.list[0].amount; r++) {
-  //
-  // }
+  $scope.getDiscount = function () {
+    $scope.discountBook += 1
+    for (var r = 0; r < $scope.amount[0]; r++) {
+    }
   }
 }])
