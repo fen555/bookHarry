@@ -5,7 +5,6 @@ eppingList.controller('index', ['$scope', function ($scope) {
   $scope.amount = []
   $scope.discountBook = 0
   $scope.sell = 0 // ส่วนลด
-  var countlist = 0// เช็ครอบเข้า เงื่อนไขลดราคา
   // $scope.list2 = []
   $scope.getTotal = function () {
     var total = 0
@@ -74,8 +73,9 @@ eppingList.controller('index', ['$scope', function ($scope) {
     }
   }
   $scope.getDiscount = function (amount) {
+    // $scope.discountBook += 1
     $scope.sell = 0
-    countlist = 0// เช็ครอบเข้า เงื่อนไขลดราคา
+    var countlist = 0 // เช็ครอบเข้า เงื่อนไขลดราคา
     var exit = 0
     console.log(amount)
     do {
