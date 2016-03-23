@@ -55,10 +55,14 @@
 		      </div>
           <div class="cost cf">
             <span class="left">Total Discount:</span>
-            <span class="right" ng-class="{total: length!==0}">{{sell | currency}}</span>
+            <span class="right" ng-class="{total2: length!==0}">{{sell | currency}}</span>
             <!-- <span class="right" ng-class="{total: length!==0}">{{getDiscount() | currency}}</span> -->
           </div>
-          <button class="clear" ng-click="getDiscount()">Cal Discout</button>
+          <div class="cost cf">
+		        <span class="left">Total Cost:</span>
+            <span class="right" ng-class="{total3: length!==0}">{{getTotal() - sell | currency}}</span>
+		      </div>
+          <!-- <button class="clear" ng-click="getDiscount()">Cal Discout</button> -->
 		      <!-- <button class="clear" ng-click="clearAll(list)">Clear Shopping List</button> -->
 		    </div>
 		  </div>
