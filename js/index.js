@@ -48,6 +48,7 @@ eppingList.controller('index', ['$scope', function ($scope) {
       }
       return 0
     })
+
     var amountproduct = []
     for (var i = 0; i < $scope.list.length; i++) {
       if (typeof $scope.list[i].amount !== 'undefined') {
@@ -55,6 +56,7 @@ eppingList.controller('index', ['$scope', function ($scope) {
       }
       $scope.amount = amountproduct
     }
+    $scope.getDiscount($scope.amount)
   }
   var check = function (list, ep) {
     for (var i = 0; i < list.length; i++) {
@@ -70,18 +72,19 @@ eppingList.controller('index', ['$scope', function ($scope) {
       }
     }
   }
-  $scope.getDiscount = function () {
+  $scope.getDiscount = function (amount) {
     // $scope.discountBook += 1
+      $scope.sell=0
     var countlist = 0 // เช็ครอบเข้า เงื่อนไขลดราคา
     var exit = 0
-    console.log($scope.amount)
+    console.log(amount)
     do {
       // /////// for เช็ค จำนวนเล่มหนังสือ
-      for (var i = 0; i < $scope.amount.length; i++) {
-        if ($scope.amount[i] !== 0) {
+      for (var i = 0; i < amount.length; i++) {
+        if (amount[i] !== 0) {
           countlist += 1
         }
-        if ($scope.amount[i] === 0) {
+        if (amount[i] === 0) {
           countlist += 0
           break
         }
@@ -113,13 +116,14 @@ eppingList.controller('index', ['$scope', function ($scope) {
         console.log('exit')
       }
       // // ลบ จำนวนออกทีละ 1
-      for (var o = 0; o < $scope.amount.length; o++) {
-        if ($scope.amount[o] > 0) {
-          $scope.amount[o] -= 1
+      for (var o = 0; o < amount.length; o++) {
+        if (amount[o] > 0) {
+          amount[o] -= 1
           countlist = 0 // รีค่าใหม่
         }
       }
     } while (exit !== 1)
+
     console.log($scope.sell)
   }
 }])
