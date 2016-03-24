@@ -37,15 +37,15 @@
 		      <table border="0" cellspacing="0">
 		        <tr class="table-header">
 		          <td class="left">Item Name</td>
-		          <td>Quantity</td>
+		          <td>Amount</td>
 		          <td class="center">Price</td>
-		          <!-- <td class="center">Delete</td> -->
+		          <td class="center">Delete</td>
 		        </tr>
 		        <tr ng-repeat="item in list">
 		          <td>{{item.name}}</td>
 		          <td class="center">{{item.amount}}</td>
 		          <td>{{item.amount * 100}}</td>
-		          <!-- <td><button class="btn btn-danger glyphicon glyphicon-trash" ng-click="remove(item)"></button></td> -->
+		          <td><button class="btn btn-danger glyphicon glyphicon-trash" ng-click="remove(item)"></button></td>
 		        </tr>
 		      </table>
 		      <div ng-hide="list.length" class="center">Your shopping list is empty.</div>

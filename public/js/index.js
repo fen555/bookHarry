@@ -17,7 +17,14 @@ eppingList.controller('index', ['$scope', function ($scope) {
   $scope.remove = function (item) {
     var index = $scope.list.indexOf(item)
     $scope.list.splice(index, 1)
-  // $scope.list2.splice(index, 1)
+    var amountproduct = []
+    for (var i = 0; i < $scope.list.length; i++) {
+      if (typeof $scope.list[i].amount !== 'undefined') {
+        amountproduct.push($scope.list[i].amount)
+      }
+      $scope.amount = amountproduct
+    }
+    $scope.getDiscount($scope.amount)
   }
 
   $scope.clearAll = function (list) {
@@ -29,7 +36,6 @@ eppingList.controller('index', ['$scope', function ($scope) {
     if (check($scope.list, ep)) {
       var index = findArrBook($scope.list, ep)
       $scope.list[index].amount += 1
-    // $scope.list2[index].amount += 1
     } else {
       var data = {
         ep: ep,
