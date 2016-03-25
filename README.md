@@ -4,7 +4,15 @@
 ```
 $ git clone https://github.com/fen555/bookHarry.git
 ```
-### 2. Run
+### 2. Install
 ```
-$ http-server
+$ npm install
+```
+### 3. Run
+```
+$ npm start
+```
+### 4. Test
+```
+$ npm test
 ```
