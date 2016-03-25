@@ -237,3 +237,6 @@ button {
 .bb:hover{
   border: 3px solid #f4611a;
 }
+.bb{
+  border: 3px solid #b9b8b1;
+}
