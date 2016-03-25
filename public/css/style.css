@@ -234,3 +234,6 @@ button {
 .cf:after {
   clear: both;
 }
+.bb:hover{
+  border: 3px solid #f4611a;
+}

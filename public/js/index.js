@@ -5,7 +5,6 @@ eppingList.controller('index', ['$scope', function ($scope) {
   $scope.amount = []
   $scope.discountBook = 0
   $scope.sell = 0 // ส่วนลด
-  // $scope.list2 = []
   $scope.getTotal = function () {
     var total = 0
     for (var i = 0; i < $scope.list.length; i++) {
@@ -30,7 +29,6 @@ eppingList.controller('index', ['$scope', function ($scope) {
   $scope.clearAll = function (list) {
     var length = list.length
     list.splice(0, length)
-  // list2.splice(0, length)
   }
   $scope.addItem = function (ep, name) {
     if (check($scope.list, ep)) {
